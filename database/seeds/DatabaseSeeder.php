@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Group;
 use App\Department;
 use App\Speciality;
+use App\Policy;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call('GroupsSeeder');
         $this->call('DepartmentsSeeder');
         $this->call('SpecialitiesSeeder');
+        $this->call('PoliciesSeeder');
     }
 }
 class GroupsSeeder extends Seeder {
@@ -52,6 +54,24 @@ class SpecialitiesSeeder extends Seeder {
         Speciality::create([
             'name' => 'VMSiS',
             'department' => 'KSis'
+        ]);
+    }
+}
+
+class PoliciesSeeder extends Seeder {
+
+    public function run()
+    {
+        DB::table('policies')->delete();
+
+        Policy::create([
+            'name' => 'Administrator',
+        ]);
+        Policy::create([
+            'name' => 'Student',
+        ]);
+        Policy::create([
+            'name' => 'Teacher',
         ]);
     }
 }
