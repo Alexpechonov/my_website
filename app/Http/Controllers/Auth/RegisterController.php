@@ -51,6 +51,7 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'group_id' => 'required|numeric',
         ]);
     }
 
@@ -62,9 +63,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'group_id' => $data['group_id'],
+            'policy_id' => 2,
             'password' => bcrypt($data['password']),
         ]);
     }

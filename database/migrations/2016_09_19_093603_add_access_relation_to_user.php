@@ -17,7 +17,8 @@ class AddAccessRelationToUser extends Migration
             $table->integer('policy_id')->unsigned()->after('group_id');
 
             $table->foreign('policy_id')
-                ->references('id')->on('policies');
+                ->references('id')->on('policies')
+                ->onDelete('cascade');
         });
     }
 
