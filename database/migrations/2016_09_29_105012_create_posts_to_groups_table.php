@@ -32,6 +32,6 @@ class CreatePostsToGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('posts_to_group+s');
+        Schema::drop('posts_to_groups');
     }
 }

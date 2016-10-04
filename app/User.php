@@ -56,4 +56,14 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Group::class);
     }
+
+    /**
+     * Get user's references
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function references()
+    {
+        return $this->hasMany(Reference::class);
+    }
 }

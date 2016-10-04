@@ -11,7 +11,7 @@
                         @if($user->isStudent())
                             @include('auth.account.student', ['user' => $user])
                         @elseif($user->isTeacher())
-                            @include('auth.account.teacher')
+                            @include('auth.account.teacher', ['user' => $user])
                         @endif
                     </div>
                 </div>
