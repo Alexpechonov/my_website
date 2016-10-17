@@ -19,4 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/reference/create', 'HomeController@index');
+Route::post('/reference/create', [
+    'as' => 'reference.store',
+    'uses' => 'Account\ReferenceController@store',
+]);
