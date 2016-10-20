@@ -147,10 +147,13 @@ i.twitter{
 /*-- social-icons --*/
 /*-- /login --*/
 .login-top.left{
-   float:left;
+    display: inline-block;
 	width:55%;
 	padding:2em;
 	background:#fff;
+}
+.login-top .help-block {
+    color: red;
 }
 .help-block {
     margin-top: -20px;
@@ -184,7 +187,16 @@ i.twitter{
     -ms-transition: .5s all;
     text-decoration: underline;
 }
-.login-top input[type="text"], .login-top input[type="password"] {
+.login-top.left h3 {
+    text-align: center;
+    margin: 0em 0 1em 0;
+    color: #08538c;
+    font-size: 1.5em;
+    font-weight: 300;
+}
+.login-top input[type="text"],
+.login-top input[type="password"],
+.login-top input[type="email"] {
     outline: none;
     font-size:0.9em;
     color: #999;
@@ -242,9 +254,6 @@ i.twitter{
 	background:#227279;
 }
 
-.login-top input[type="text"]:focus, .login-top input[type="password"]:focus{
-	
-}
 .login-top input.name {
     background:#fff url(../../images/auth/1.png) no-repeat 2% 51%;
 }
@@ -260,7 +269,9 @@ i.twitter{
 .login-top input.password1 {
     background:#fff url(../../images/auth/2.png) no-repeat 4% 51%;
 }
-.login-top input[type="text"]:hover, .login-top input[type="password"]:hover{
+.login-top input[type="text"]:hover,
+.login-top input[type="password"]:hover,
+.login-top input[type="email"]:hover {
     border-bottom-color:rgba(132, 141, 215, 0.52);
 }
 .login-top.right input[type="text"],.login-top.right input[type="password"] {
