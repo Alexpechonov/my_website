@@ -46,7 +46,7 @@
                 <div class="form-group {{ $errors->has('group_id') ? ' has-error' : '' }}">
                         <select name="group_id" class="form-control">
                             @foreach($groups as $group)
-                                <option value="{{ $group->id }}">{{ $group->name }}</option>
+                                <option value="{{ $group->id }}">{{ $group->number }}</option>
                             @endforeach
                         </select>
 

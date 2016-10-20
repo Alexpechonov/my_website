@@ -4,15 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Group extends Model
+class Faculty extends Model
 {
-    protected $table = 'groups';
+     protected $table = 'faculties';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'number', 'speciality_id', 'faculty_id'
+        'name', 'description'
     ];
 }
