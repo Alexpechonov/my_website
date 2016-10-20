@@ -27,6 +27,9 @@ ul{
 margin:0;
 padding:0;
 }
+.avatar {
+    max-width: 100%;
+}
 /*----*/
 .banner{
 background:url(../images/bg.jpg) no-repeat 0px 0px;
