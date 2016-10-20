@@ -152,7 +152,7 @@ i.twitter{
 	padding:2em;
 	background:#fff;
 }
-.login-top .help-block {
+.login-top.left .help-block {
     color: red;
 }
 .help-block {
