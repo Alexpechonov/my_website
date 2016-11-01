@@ -7,10 +7,10 @@
                 </div>
                 <div class="col-lg-6">
                     <ul class="info-list">
-                        <li>{{$user->name}}</li>
-                        <li>{{$user->group->name}}</li>
-                        <li>{{$user->group->speciality}}</li>
-                        <li>{{$user->group->department}}</li>
+                        <li>{{ $user->name }}</li>
+                        <li>{{ $user->group->getNumber() }}</li>
+                        <li>{{ $user->group->faculty->getName() }}</li>
+                        <li>{{ $user->group->speciality->getName() }}</li>
                     </ul>
                 </div>
             </div>

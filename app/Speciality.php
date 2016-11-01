@@ -15,4 +15,22 @@ class Speciality extends Model
     protected $fillable = [
         'name', 'description', 'faculty_id'
     ];
+
+    /**
+     * Get the name of speciality
+     *
+     * @return mixed
+     */
+    public function getName() {
+        return $this->name;
+    }
+
+    /**
+     * Get the description of speciality
+     *
+     * @return mixed
+     */
+    public function getDescription() {
+        return $this->description;
+    }
 }

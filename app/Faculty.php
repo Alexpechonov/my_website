@@ -15,4 +15,13 @@ class Faculty extends Model
     protected $fillable = [
         'name', 'description'
     ];
+
+    /**
+     * Get the name of faculty
+     *
+     * @return mixed
+     */
+    public function getName() {
+        return $this->name;
+    }
 }
