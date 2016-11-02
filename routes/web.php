@@ -19,15 +19,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::post('/reference/create', [
-    'as' => 'reference.store',
-    'uses' => 'Account\ReferenceController@store',
-]);
+Route::resource('reference', 'Account\ReferenceController', ['only' => [
+    'create', 'store', 'update', 'destroy'
+]]);
 
-Route::post('/post/create', [
-    'as' => 'post.store',
-    'uses' => 'Account\PostController@store',
-]);
+Route::resource('post', 'Account\PostController', ['only' => [
+    'create', 'store', 'update', 'destroy'
+]]);
 
 Route::group(['middleware' => ['admin', 'web']], function () {
     Route::get('/update-teachers', function () {
