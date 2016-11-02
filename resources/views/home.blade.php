@@ -7,10 +7,12 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Dashboard</div>
                     <div class="panel-body">
-                        @if($user->isStudent())
+                        @if($user->hasRole('student'))
                             @include('auth.account.student', ['user' => $user])
-                        @elseif($user->isTeacher())
+                        @elseif($user->hasRole('teacher'))
                             @include('auth.account.teacher', ['user' => $user])
+                        @elseif($user->hasRole('admin'))
+                            You're admin
                         @endif
                     </div>
                 </div>
