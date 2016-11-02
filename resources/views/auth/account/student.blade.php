@@ -28,38 +28,13 @@
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                     <h4 class="modal-title" id="storeReference">Заголовок</h4>
                                 </div>
-                                {!! Form::open(['url' => route('reference.store') ]) !!}
-                                <div class="modal-body">
-                                        <div class="form-group">
-                                            {!! Form::label('name', 'Название ссылки:') !!}
-                                            {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                                        </div>
-                                        <div class="form-group">
-                                            {!! Form::label('reference', 'Ссылка:') !!}
-                                            {!! Form::text('reference', null, ['class' => 'form-control']) !!}
-                                        </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-default" data-dismiss="modal">Закрыть</button>
-                                    {!! Form::submit('Создать ссылку', ['class' => 'btn btn-primary']) !!}
-                                </div>
-                                {!! Form::close() !!}
+                                @include('partials.references.create')
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-10">
-                    <ul class="info-list">
-                        @foreach($user->references()->get()->chunk(2) as $refs )
-                            <div class="col-lg-12">
-                                @foreach($refs as $ref)
-                                    <div class="col-lg-6">
-                                        <li><a href="{{ $ref->reference }}">{{ $ref->name }}</a></li>
-                                    </div>
-                                @endforeach
-                            </div>
-                        @endforeach
-                    </ul>
+                   @include('partials.references.index')
                 </div>
             </div>
         </div>
