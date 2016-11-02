@@ -1,0 +1,84 @@
+@startuml
+class AdminGroup{
++handle($request, Closure $next)
+}
+class PostController extends Controller{
++index()
++create()
++store(Request $request)
++show($id)
++destroy($id)
+}
+
+class ReferenceController extends Controller{
++index()
++create()
++store(CreateReferenceRequest $request)
++show($id)
++destroy($id)
+}
+
+class Controller extends BaseController
+
+class HomeController extends Controller {
++__construct()
++index()
+}
+
+
+
+class Faculty extends Model{
+#$table
+#$fillable
++getName()
+}
+class Group extends Model{
+#$table
+#$fillable
++getNumber()
++speciality()
++faculty()
+}
+
+class Policy extends Model{
+#$table
+#$fillable
++owner()
+}
+
+class Post extends Model{
+#$table
+#$fillable
++setUserIdAttribute($value)
++owner()
+}
+
+class Reference extends Model{
+#$table
+#$fillable
++user()
+}
+
+class Speciality extends Model{
+#$table
+#$fillable
++getName()
++getDescription()
+}
+
+class User extends Model{
+#$table
+#$fillable
+#$hidden
++group()
++references()
++posts()
++role()
++hasRole($role = 'admin')
++isAdmin()
++isStudent()
++isTeacher()
+}
+
+class ExampleTest extends TestCase
+@enduml

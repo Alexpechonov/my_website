@@ -1,0 +1,17 @@
+@startuml
+
+package "Web Client Machine" {
+[ClientGUI]
+}
+
+package "Web Server" {
+[ServerLogic]
+[MySQL]
+[PostController]
+}
+
+[ClientGUI] --> [ServerLogic]
+[ServerLogic] --> [PostController]
+[ServerLogic] --> [MySQL]
+[PostController] --> [MySQL]
+@enduml
