@@ -20,6 +20,7 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+    @yield('styles')
 </head>
 <body>
     <nav class="navbar navbar-default navbar-static-top">
@@ -82,5 +83,6 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    @yield('scripts')
 </body>
 </html>

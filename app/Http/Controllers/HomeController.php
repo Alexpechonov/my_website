@@ -25,7 +25,8 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $posts = $user->posts()->get();
 
-        return view('home')->with(compact(['user']));
+        return view('home')->with(compact(['user', 'posts']));
     }
 }
