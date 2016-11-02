@@ -23,3 +23,14 @@ Route::post('/reference/create', [
     'as' => 'reference.store',
     'uses' => 'Account\ReferenceController@store',
 ]);
+
+Route::post('/post/create', [
+    'as' => 'post.store',
+    'uses' => 'Account\PostController@store',
+]);
+
+Route::group(['middleware' => ['admin', 'web']], function () {
+    Route::get('/update-teachers', function () {
+        //..//
+    });
+});
