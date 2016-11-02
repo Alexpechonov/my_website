@@ -12,4 +12,13 @@ class Policy extends Model
         'name'
     ];
 
+    /**
+     * Get the owner for a policy.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function owner(){
+        return $this->belongsTo(User::class);
+    }
+
 }
