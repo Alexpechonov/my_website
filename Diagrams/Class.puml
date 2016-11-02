@@ -5,6 +5,46 @@ class AdminGroup{
 class PostController extends Controller{
 +index()
 +create()
++store(CreatePostRequest $request)
++show($id)
++destroy($id)
+}
+
+class FacultyController extends Controller{
++index()
++create()
++store(Request $request)
++show($id)
++destroy($id)
+}
+
+class GroupController extends Controller{
++index()
++create()
++store(Request $request)
++show($id)
++destroy($id)
+}
+
+class PolicyController extends Controller{
++index()
++create()
++store(Request $request)
++show($id)
++destroy($id)
+}
+
+class SpecialityController extends Controller{
++index()
++create()
++store(Request $request)
++show($id)
++destroy($id)
+}
+
+class UserController extends Controller{
++index()
++create()
 +store(Request $request)
 +show($id)
 +destroy($id)
@@ -79,6 +119,16 @@ class User extends Model{
 +isStudent()
 +isTeacher()
 }
+
+
+class CreateReferenceRequest extends FormRequest{
++rules()
+}
+
+class CreatePostRequest extends FormRequest{
++rules()
+}
+
 
 class ExampleTest extends TestCase
 @enduml

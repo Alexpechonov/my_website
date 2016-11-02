@@ -7,11 +7,8 @@ package "Web Client Machine" {
 package "Web Server" {
 [ServerLogic]
 [MySQL]
-[PostController]
 }
 
-[ClientGUI] --> [ServerLogic]
-[ServerLogic] --> [PostController]
+[ClientGUI] --> [ServerLogic] : Http
 [ServerLogic] --> [MySQL]
-[PostController] --> [MySQL]
 @enduml
