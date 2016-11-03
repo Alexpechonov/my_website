@@ -5,10 +5,29 @@ package "Web Client Machine" {
 }
 
 package "Web Server" {
-[ServerLogic]
+[Router]
+[PostController]
+[FacultyController]
+[GroupController]
+[PolicyController]
+[SpecialityController]
+[ReferenceController]
+[PageControllers]
 [MySQL]
 }
 
-[ClientGUI] --> [ServerLogic] : Http
-[ServerLogic] --> [MySQL]
+[ClientGUI] --> [Router] : Http
+[Router] --> [PostController]
+[Router] --> [FacultyController]
+[Router] --> [GroupController]
+[Router] --> [PolicyController]
+[Router] --> [SpecialityController]
+[Router] --> [ReferenceController]
+[Router] --> [PageControllers]
+[PostController] --> [MySQL]
+[FacultyController] --> [MySQL]
+[GroupController] --> [MySQL]
+[PolicyController] --> [MySQL]
+[SpecialityController] --> [MySQL]
+[ReferenceController] --> [MySQL]
 @enduml

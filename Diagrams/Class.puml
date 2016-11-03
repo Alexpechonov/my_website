@@ -47,15 +47,6 @@ class SpecialityController extends Controller{
 +destroy($id)
 }
 
-class UserController extends Controller{
-+index()
-+create()
-+store(Request $request)
-+delete(Request $request)
-+show($id)
-+destroy($id)
-}
-
 class ReferenceController extends Controller{
 +index()
 +create()
@@ -137,5 +128,7 @@ class CreatePostRequest extends FormRequest{
 }
 
 
-class ExampleTest extends TestCase
+class ExampleTest extends TestCase{
++testBasicExample()
+}
 @enduml
