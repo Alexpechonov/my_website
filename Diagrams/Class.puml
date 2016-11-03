@@ -6,6 +6,7 @@ class PostController extends Controller{
 +index()
 +create()
 +store(CreatePostRequest $request)
++delete(Request $request)
 +show($id)
 +destroy($id)
 }
@@ -14,6 +15,7 @@ class FacultyController extends Controller{
 +index()
 +create()
 +store(Request $request)
++delete(Request $request)
 +show($id)
 +destroy($id)
 }
@@ -22,6 +24,7 @@ class GroupController extends Controller{
 +index()
 +create()
 +store(Request $request)
++delete(Request $request)
 +show($id)
 +destroy($id)
 }
@@ -30,6 +33,7 @@ class PolicyController extends Controller{
 +index()
 +create()
 +store(Request $request)
++delete(Request $request)
 +show($id)
 +destroy($id)
 }
@@ -38,6 +42,7 @@ class SpecialityController extends Controller{
 +index()
 +create()
 +store(Request $request)
++delete(Request $request)
 +show($id)
 +destroy($id)
 }
@@ -46,6 +51,7 @@ class UserController extends Controller{
 +index()
 +create()
 +store(Request $request)
++delete(Request $request)
 +show($id)
 +destroy($id)
 }
@@ -54,6 +60,7 @@ class ReferenceController extends Controller{
 +index()
 +create()
 +store(CreateReferenceRequest $request)
++delete(Request $request)
 +show($id)
 +destroy($id)
 }
