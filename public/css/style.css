@@ -1457,3 +1457,18 @@ font-size: 0.85em;
 margin-right:1em;
 }
 }
+.form-del-ref {
+    display: inline;
+}
+.form-del-ref > .del-ref {
+   cursor: pointer;
+}
+.form-del-ref button {
+    padding: 0;
+    background: none;
+    margin: 0;
+    border: none;
+}
+.panel-default>.panel-heading {
+    margin-bottom: 20px;
+}

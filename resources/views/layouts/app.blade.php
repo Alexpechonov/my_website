@@ -11,8 +11,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
+    {{ Html::style('css/app.css') }}
+    {{ Html::style('css/style.css') }}
+    {{ Html::style('css/font-awesome.min.css') }}
 
     <!-- Scripts -->
     <script>

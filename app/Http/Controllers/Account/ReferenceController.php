@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Account;
 
+use App\Reference;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
@@ -41,7 +43,7 @@ class ReferenceController extends Controller
         $user = Auth::user();
         $user->references()->create($request->all());
 
-        return redirect()->back();
+        return redirect()->back()->with('messages',  ['Reference successfully created']);
     }
 
     /**
@@ -84,8 +86,17 @@ class ReferenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
+        try {
+            $reference = Reference::findOrFail($id);
 
+            $reference->delete();
+        }
+        catch (ModelNotFoundException $ex) {
+            return redirect()->action('HomeController@index')->withErrors(['Reference was not found']);
+        }
+
+        return redirect()->back()->with('messages',  ['Reference successfully deleted']);
     }
 }
