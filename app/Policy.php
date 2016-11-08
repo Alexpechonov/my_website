@@ -8,6 +8,11 @@ class Policy extends Model
 {
     public $table = 'policies';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
         'name'
     ];
