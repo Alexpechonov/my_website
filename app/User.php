@@ -9,6 +9,13 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    /**
+     * Indexes for roles in the DB table.
+     */
+    const ADMIN = 1;
+    const STUDENT = 2;
+    const TEACHER = 3;
+
     protected $table = 'users';
 
     /**
@@ -105,7 +112,7 @@ class User extends Authenticatable
      */
     public function isStudent()
     {
-        return $this->role->id == 2;
+        return $this->role->id == self::STUDENT;
     }
 
     /**
@@ -115,6 +122,28 @@ class User extends Authenticatable
      */
     public function isTeacher()
     {
-        return $this->role->id == 3;
+        return $this->role->id == self::TEACHER;
+    }
+
+    /**
+     * Scope a query to only include teachers.
+     *
+     * @param $query
+     * @return mixed
+     */
+    public function scopeTeachers($query)
+    {
+        return $query->where('policy_id', self::TEACHER);
+    }
+
+    /**
+     * Scope a query to only include students.
+     *
+     * @param $query
+     * @return mixed
+     */
+    public function scopeStudents($query)
+    {
+        return $query->where('policy_id', self::STUDENT);
     }
 }

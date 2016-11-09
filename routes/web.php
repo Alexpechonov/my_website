@@ -11,14 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@mainPage');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
-
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', 'HomeController@index')->name('account');
+});
 Route::resource('reference', 'Account\ReferenceController', ['only' => [
     'create', 'store', 'update', 'destroy'
 ]]);

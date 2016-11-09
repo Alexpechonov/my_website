@@ -47,8 +47,12 @@
                     <li class="active"><a href="{{ url('/') }}">Home</a></li>
                     <li><a class="scroll" href="#features">Features</a></li>
                     <li><a class="scroll" href="#about">About</a></li>
-                    <li><a href="{{ url('/register') }}">Register</a></li>
-                    <li><a href="{{ url('/login') }}">Login</a></li>
+                    @if (Auth::guest())
+                        <li><a href="{{ url('/register') }}">Register</a></li>
+                        <li><a href="{{ url('/login') }}">Login</a></li>
+                    @else
+                        <li><a href="{{ route('account') }}">Account</a></li>
+                    @endif
                 </ul>
             </div>
             <!-- script-for-menu -->
@@ -87,17 +91,17 @@
         <div class="features-section">
             <div class="col-md-4 feature-grid">
                 <img class="wow bounceIn" data-wow-delay="0.4s" src="images/icon1.png" alt=""/>
-                <h3>Teachers 300+</h3>
+                <h3>Teachers {{ $teachers }}+</h3>
                 <p>Fusce fermentum placerat magna ac pharetra. Aliquam euismod elit non ipsum lacinia consectetur.</p>
             </div>
             <div class="col-md-4 feature-grid">
                 <img class="wow bounceIn" data-wow-delay="0.4s" src="images/icon2.png" alt=""/>
-                <h3>Students 200+</h3>
+                <h3>Students {{ $students }}+</h3>
                 <p>Fusce fermentum placerat magna ac pharetra. Aliquam euismod elit non ipsum lacinia consectetur.</p>
             </div>
             <div class="col-md-4 feature-grid">
                 <img class="wow bounceIn" data-wow-delay="0.4s" src="images/icon3.png" alt=""/>
-                <h3>News 210+</h3>
+                <h3>News {{ $posts }}+</h3>
                 <p>Fusce fermentum placerat magna ac pharetra. Aliquam euismod elit non ipsum lacinia consectetur.</p>
             </div>
             <div class="clearfix"></div>
