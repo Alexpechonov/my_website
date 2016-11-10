@@ -15,7 +15,7 @@
         </div>
         <div class="col-lg-6">
             <div class="row">
-                <div class="col-lg-2">
+                <div class="col-lg-3">
                     Контакты:
                     <button class="btn btn-primary" data-toggle="modal" data-target=".store-reference-modal">Добавить</button>
 
@@ -31,7 +31,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-10">
+                <div class="col-lg-9">
                     @include('partials.references.index')
                 </div>
             </div>

@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\CreateReferenceRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
+
 
 class ReferenceController extends Controller
 {
@@ -19,7 +21,14 @@ class ReferenceController extends Controller
      */
     public function index()
     {
-        //
+        if(! Auth::guest()) {
+            return Response::json(
+                Auth::user()->references()->get(),
+                200
+            );
+        }
+
+        return Response::json(null, 201);
     }
 
     /**

@@ -83,7 +83,8 @@
     @yield('content')
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.5/vue.min.js"></script>
+    {{ Html::script('js/jquery.min.js') }}
+    {{ Html::script('js/vue.min.js') }}
     {{ Html::script('js/app.js') }}
     {{ Html::script('js/main.js') }}
     @yield('scripts')
