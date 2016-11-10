@@ -95,7 +95,7 @@ class ReferenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy($id)
     {
         try {
             $reference = Reference::findOrFail($id);
@@ -103,9 +103,19 @@ class ReferenceController extends Controller
             $reference->delete();
         }
         catch (ModelNotFoundException $ex) {
-            return redirect()->action('HomeController@index')->withErrors(['Reference was not found']);
+            return Response::json([
+                'success' => false,
+                'messages' => [
+                  'Reference was not found'
+                ],
+            ], 200);
         }
 
-        return redirect()->back()->with('messages',  ['Reference successfully deleted']);
+        return Response::json([
+            'success' => true,
+            'messages' => [
+                'Reference successfully deleted'
+            ],
+        ], 200);
     }
 }

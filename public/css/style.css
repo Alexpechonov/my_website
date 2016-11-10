@@ -1463,7 +1463,7 @@ margin-right:1em;
 .form-del-ref > .del-ref {
    cursor: pointer;
 }
-.form-del-ref button {
+.info-list button {
     padding: 0;
     background: none;
     margin: 0;

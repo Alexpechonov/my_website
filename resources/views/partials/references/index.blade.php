@@ -1,9 +1,9 @@
 <div class="info-list">
-    <references> </references>
+    <references></references>
 </div>
 
 <template id="refs-template">
-        <li v-for="ref in list">
-            <a href="@{{ ref.reference }}">@{{ ref.name }}</a>
-        </li>
+    <li v-for="ref in list">
+        @include('partials.references.show')
+    </li>
 </template>
