@@ -18,13 +18,18 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index')->name('account');
 });
-Route::resource('reference', 'Account\ReferenceController', ['only' => [
-    'create', 'store', 'update', 'destroy'
-]]);
+Route::group(['prefix' => 'api'], function () {
+    Route::get('/references', 'Account\ReferenceController@index');
 
-Route::resource('post', 'Account\PostController', ['only' => [
-    'create', 'store', 'update', 'destroy'
-]]);
+    Route::resource('reference', 'Account\ReferenceController', ['only' => [
+        'create', 'store', 'update', 'destroy'
+    ]]);
+
+    Route::resource('post', 'Account\PostController', ['only' => [
+        'create', 'store', 'update', 'destroy'
+    ]]);
+});
+
 
 Route::group(['middleware' => ['admin', 'web']], function () {
     Route::get('/update-teachers', function () {
