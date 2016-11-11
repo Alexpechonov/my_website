@@ -1,11 +1,5 @@
 Vue.http.headers.common['X-CSRF-TOKEN'] = window.Laravel.csrfToken;
 
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': window.Laravel.csrfToken
-    }
-});
-
 Vue.component('references', {
     template: '#refs-template',
 
