@@ -97,18 +97,20 @@ class ReferenceController extends Controller
      */
     public function destroy($id)
     {
+        return Response::json([
+            'success' => false,
+            'messages' => [
+                'Reference was not found'
+            ],
+        ], 400);
+
         try {
             $reference = Reference::findOrFail($id);
 
             $reference->delete();
         }
         catch (ModelNotFoundException $ex) {
-            return Response::json([
-                'success' => false,
-                'messages' => [
-                  'Reference was not found'
-                ],
-            ], 200);
+
         }
 
         return Response::json([
