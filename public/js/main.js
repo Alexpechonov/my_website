@@ -24,7 +24,7 @@ Vue.component('references', {
 
     methods: {
         fetchReferences: function () {
-            this.$http.get('/api/references').then((references) => {
+            this.$http.get('/references').then((references) => {
                 console.log(references);
                 this.list = references.data;
                 console.log(this.list);

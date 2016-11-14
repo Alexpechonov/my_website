@@ -23,13 +23,11 @@ Route::resource('reference', 'Account\ReferenceController', ['only' => [
     'create', 'store', 'destroy'
 ]]);
 
-Route::group(['prefix' => 'api'], function () {
-    Route::get('/references', 'Account\ReferenceController@index');
+Route::get('/references', 'Account\ReferenceController@index');
 
-    Route::resource('post', 'Account\PostController', ['only' => [
-        'create', 'store', 'update', 'destroy'
-    ]]);
-});
+Route::resource('post', 'Account\PostController', ['only' => [
+    'create', 'store', 'update', 'destroy'
+]]);
 
 
 Route::group(['middleware' => ['admin', 'web']], function () {
