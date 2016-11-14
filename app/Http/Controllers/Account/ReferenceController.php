@@ -14,12 +14,6 @@ use Illuminate\Support\Facades\Response;
 
 class ReferenceController extends Controller
 {
-
-    public function manageReferences()
-    {
-        return view('manage-references');
-    }
-
     /**
  * Display a listing of the resource.
  *
@@ -35,16 +29,6 @@ class ReferenceController extends Controller
         }
 
         return Response::json(null, 201);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -64,28 +48,6 @@ class ReferenceController extends Controller
                 'Reference successfully created'
             ],
         ], 200);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**

@@ -23,8 +23,6 @@ Route::resource('reference', 'Account\ReferenceController', ['only' => [
     'create', 'store', 'destroy'
 ]]);
 
-Route::get('manage-references', 'Account\ReferenceController@manageReferences');
-
 Route::group(['prefix' => 'api'], function () {
     Route::get('/references', 'Account\ReferenceController@index');
 
