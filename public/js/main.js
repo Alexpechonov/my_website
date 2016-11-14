@@ -3,6 +3,15 @@ Vue.http.headers.common['X-CSRF-TOKEN'] = window.Laravel.csrfToken;
 Vue.component('references', {
     template: '#refs-template',
 
+    data: {
+        list: [],
+
+        newReference: {
+            name: '',
+            reference: ''
+        }
+    },
+
     data: function () {
         return {
             list: []
@@ -10,15 +19,36 @@ Vue.component('references', {
     },
 
     created: function () {
-        $.getJSON('/api/references', function (references) {
-            this.list = references;
-        }.bind(this));
+        this.fetchReferences();
     },
 
     methods: {
-        delete: function (reference) {
+        fetchReferences: function () {
+            this.$http.get('/api/references').then((references) => {
+                console.log(references);
+                this.list = references.data;
+                console.log(this.list);
+            });
+        },
 
-            this.$http.delete('reference/' + reference.id)
+        createReference: function () {
+            var input = this.newReference;
+            this.$http.post('/reference', input)
+                .then(() => {
+                    // success callback
+                    $('.modal').modal('toggle');
+                    this.newReference = { name: '', reference: '' }
+                    this.fetchReferences();
+                }, (data) => {
+                    // error callback
+                   console.log(data);
+                });
+
+        },
+
+        deleteReference: function (reference) {
+
+            this.$http.delete('reference/' + (100+ reference.id))
                 .then((data) => {
                     // success callback
                     var response = JSON.parse(data.body);

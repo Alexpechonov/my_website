@@ -14,11 +14,17 @@ use Illuminate\Support\Facades\Response;
 
 class ReferenceController extends Controller
 {
+
+    public function manageReferences()
+    {
+        return view('manage-references');
+    }
+
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+ * Display a listing of the resource.
+ *
+ * @return \Illuminate\Http\Response
+ */
     public function index()
     {
         if(! Auth::guest()) {
@@ -52,7 +58,12 @@ class ReferenceController extends Controller
         $user = Auth::user();
         $user->references()->create($request->all());
 
-        return redirect()->back()->with('messages',  ['Reference successfully created']);
+        return Response::json([
+            'success' => true,
+            'messages' => [
+                'Reference successfully created'
+            ],
+        ], 200);
     }
 
     /**

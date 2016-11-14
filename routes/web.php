@@ -20,8 +20,10 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 Route::resource('reference', 'Account\ReferenceController', ['only' => [
-    'create', 'store', 'update', 'destroy'
+    'create', 'store', 'destroy'
 ]]);
+
+Route::get('manage-references', 'Account\ReferenceController@manageReferences');
 
 Route::group(['prefix' => 'api'], function () {
     Route::get('/references', 'Account\ReferenceController@index');

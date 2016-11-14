@@ -6,4 +6,5 @@
     <li v-for="ref in list">
         @include('partials.references.show')
     </li>
+    @include('partials.references.create')
 </template>

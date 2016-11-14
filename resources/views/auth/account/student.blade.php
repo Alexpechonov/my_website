@@ -20,18 +20,6 @@
                 <div class="col-lg-3">
                     Контакты:
                     <button class="btn btn-primary" data-toggle="modal" data-target=".store-reference-modal">Добавить</button>
-
-                    <div class="modal fade store-reference-modal" tabindex="-1" role="dialog" aria-labelledby="storeReference" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                    <h4 class="modal-title" id="storeReference">Заголовок</h4>
-                                </div>
-                                @include('partials.references.create')
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="col-lg-9">
                    @include('partials.references.index')
