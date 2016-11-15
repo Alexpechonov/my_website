@@ -14,7 +14,7 @@ class Policy extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'name',
     ];
 
     /**
@@ -22,8 +22,8 @@ class Policy extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function owner(){
+    public function owner()
+    {
         return $this->belongsTo(User::class);
     }
-
 }

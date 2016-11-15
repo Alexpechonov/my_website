@@ -14,33 +14,36 @@ class Group extends Model
      * @var array
      */
     protected $fillable = [
-        'number', 'speciality_id', 'faculty_id'
+        'number', 'speciality_id', 'faculty_id',
     ];
 
     /**
-     * Get the number of group
+     * Get the number of group.
      *
      * @return mixed
      */
-    public function getNumber(){
+    public function getNumber()
+    {
         return $this->number;
     }
 
     /**
-     * Get the object of speciality
+     * Get the object of speciality.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function speciality(){
+    public function speciality()
+    {
         return $this->belongsTo(Speciality::class);
     }
 
     /**
-     * Get the object of faculty
+     * Get the object of faculty.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function faculty(){
+    public function faculty()
+    {
         return $this->belongsTo(Faculty::class);
     }
 }

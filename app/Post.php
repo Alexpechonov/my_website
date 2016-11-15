@@ -14,7 +14,7 @@ class Post extends Model
      * @var array
      */
     protected $fillable = [
-        'author_id', 'title', 'description', 'body'
+        'author_id', 'title', 'description', 'body',
     ];
 
     public function setUserIdAttribute($value)
@@ -27,7 +27,8 @@ class Post extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function owner(){
+    public function owner()
+    {
         return $this->hasOne(User::class);
     }
 }

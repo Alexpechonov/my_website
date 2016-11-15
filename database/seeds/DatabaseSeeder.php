@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Database\Seeder;
-use App\Group;
 use App\Faculty;
-use App\Speciality;
+use App\Group;
 use App\Policy;
+use App\Speciality;
+use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,46 +23,46 @@ class DatabaseSeeder extends Seeder
     }
 }
 
-class FacultySeeder extends Seeder {
-
+class FacultySeeder extends Seeder
+{
     public function run()
     {
         DB::table('faculties')->delete();
         Faculty::create([
-            'name' => 'КСиС',
+            'name'        => 'КСиС',
             'description' => 'Компьтерные системы и сети',
         ]);
     }
 }
 
-class SpecialitySeeder extends Seeder {
-
+class SpecialitySeeder extends Seeder
+{
     public function run()
     {
         DB::table('Specialities')->delete();
         Speciality::create([
-            'name' => 'ВМСиС',
+            'name'       => 'ВМСиС',
             'faculty_id' => '1',
-            'department' => 'КСиС'
+            'department' => 'КСиС',
         ]);
     }
 }
 
-class GroupsSeeder extends Seeder {
-
+class GroupsSeeder extends Seeder
+{
     public function run()
     {
         DB::table('Groups')->delete();
         Group::create([
-            'number' => '450502',
+            'number'        => '450502',
             'speciality_id' => '1',
-            'faculty_id' => '1'
+            'faculty_id'    => '1',
         ]);
     }
 }
 
-class PoliciesSeeder extends Seeder {
-
+class PoliciesSeeder extends Seeder
+{
     public function run()
     {
         DB::table('policies')->delete();

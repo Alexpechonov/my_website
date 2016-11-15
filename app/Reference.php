@@ -14,13 +14,13 @@ class Reference extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'reference'
+        'name', 'reference',
     ];
 
     public $timestamps = false;
 
     /**
-     * Get users by reference
+     * Get users by reference.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -28,5 +28,4 @@ class Reference extends Model
     {
         return $this->belongsTo(User::class);
     }
-
 }
