@@ -84,7 +84,9 @@
 
     <!-- Scripts -->
     {{ Html::script('js/jquery.min.js') }}
+    {{ Html::script('js/script.js') }}
     {{ Html::script('js/vue.js') }}
+
     {{ Html::script('js/app.js') }}
     {{ Html::script('js/main.js') }}
     @yield('scripts')
