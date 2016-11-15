@@ -2,26 +2,24 @@
 
 namespace App\Http\Controllers\Account;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateReferenceRequest;
 use App\Reference;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Http\Requests;
-use App\Http\Requests\CreateReferenceRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
-
 
 class ReferenceController extends Controller
 {
     /**
- * Display a listing of the resource.
- *
- * @return \Illuminate\Http\Response
- */
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        if(! Auth::guest()) {
+        if (!Auth::guest()) {
             return Response::json(
                 Auth::user()->references()->get(),
                 200
@@ -35,6 +33,7 @@ class ReferenceController extends Controller
      * Store a newly created resource in storage.
      *
      * @param CreateReferenceRequest $request
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(CreateReferenceRequest $request)
@@ -43,9 +42,9 @@ class ReferenceController extends Controller
         $user->references()->create($request->all());
 
         return Response::json([
-            'success' => true,
+            'success'  => true,
             'messages' => [
-                'Reference successfully created'
+                'Reference successfully created',
             ],
         ], 200);
     }
@@ -53,8 +52,9 @@ class ReferenceController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -65,7 +65,8 @@ class ReferenceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -74,20 +75,19 @@ class ReferenceController extends Controller
             $reference = Reference::findOrFail($id);
 
             $reference->delete();
-        }
-        catch (ModelNotFoundException $ex) {
+        } catch (ModelNotFoundException $ex) {
             return Response::json([
-                'success' => false,
+                'success'  => false,
                 'messages' => [
-                    'Reference was not found'
+                    'Reference was not found',
                 ],
             ], 400);
         }
 
         return Response::json([
-            'success' => true,
+            'success'  => true,
             'messages' => [
-                'Reference successfully deleted'
+                'Reference successfully deleted',
             ],
         ], 200);
     }

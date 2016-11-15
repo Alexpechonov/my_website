@@ -6,22 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Faculty extends Model
 {
-     protected $table = 'faculties';
+    protected $table = 'faculties';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'description'
+        'name', 'description',
     ];
 
     /**
-     * Get the name of faculty
+     * Get the name of faculty.
      *
      * @return mixed
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
 }

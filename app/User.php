@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -25,7 +25,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'email', 'password',
-        'group_id', 'policy_id'
+        'group_id', 'policy_id',
     ];
 
     /**
@@ -38,7 +38,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get user's group
+     * Get user's group.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -48,7 +48,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Get user's references
+     * Get user's references.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -58,7 +58,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Get user's posts
+     * Get user's posts.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -68,7 +68,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Get user's policy
+     * Get user's policy.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -78,18 +78,20 @@ class User extends Authenticatable
     }
 
     /**
-     * Check if user has a role
+     * Check if user has a role.
      *
      * @param string $role
+     *
      * @return bool
      */
-    public function hasRole($role = 'admin') {
+    public function hasRole($role = 'admin')
+    {
         switch ($role) {
-            case "admin":
+            case 'admin':
                 return $this->isAdmin();
-            case "student":
+            case 'student':
                 return $this->isStudent();
-            case "teacher":
+            case 'teacher':
                 return $this->isTeacher();
             default:
                 return false;
@@ -97,18 +99,19 @@ class User extends Authenticatable
     }
 
     /**
-     * Check if user is admin
+     * Check if user is admin.
      *
      * @return bool
      */
-    public function isAdmin() {
+    public function isAdmin()
+    {
         return $this->role->id == 1;
     }
 
     /**
-     * Check if user is student
+     * Check if user is student.
      *
-     * @return boolean
+     * @return bool
      */
     public function isStudent()
     {
@@ -116,9 +119,9 @@ class User extends Authenticatable
     }
 
     /**
-     * Check if user is teacher
+     * Check if user is teacher.
      *
-     * @return boolean
+     * @return bool
      */
     public function isTeacher()
     {
@@ -129,6 +132,7 @@ class User extends Authenticatable
      * Scope a query to only include teachers.
      *
      * @param $query
+     *
      * @return mixed
      */
     public function scopeTeachers($query)
@@ -140,6 +144,7 @@ class User extends Authenticatable
      * Scope a query to only include students.
      *
      * @param $query
+     *
      * @return mixed
      */
     public function scopeStudents($query)

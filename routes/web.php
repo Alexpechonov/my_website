@@ -20,13 +20,13 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 Route::resource('reference', 'Account\ReferenceController', ['only' => [
-    'create', 'store', 'destroy'
+    'create', 'store', 'destroy',
 ]]);
 
 Route::get('/references', 'Account\ReferenceController@index');
 
 Route::resource('post', 'Account\PostController', ['only' => [
-    'create', 'store', 'update', 'destroy'
+    'create', 'store', 'update', 'destroy',
 ]]);
 
 

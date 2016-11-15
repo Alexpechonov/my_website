@@ -13,33 +13,36 @@ class Speciality extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'description', 'faculty_id'
+        'name', 'description', 'faculty_id',
     ];
 
     /**
-     * Get the name of speciality
+     * Get the name of speciality.
      *
      * @return mixed
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
 
     /**
-     * Get the description of speciality
+     * Get the description of speciality.
      *
      * @return mixed
      */
-    public function getDescription() {
+    public function getDescription()
+    {
         return $this->description;
     }
 
     /**
-     * Get the object of faculty
+     * Get the object of faculty.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function faculty(){
+    public function faculty()
+    {
         return $this->belongsTo(Faculty::class);
     }
 }
