@@ -48,7 +48,7 @@ Vue.component('references', {
 
         deleteReference: function (reference) {
 
-            this.$http.delete('reference/' + (100+ reference.id))
+            this.$http.delete('reference/' + reference.id)
                 .then((data) => {
                     // success callback
                     var response = JSON.parse(data.body);
