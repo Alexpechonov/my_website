@@ -40,7 +40,7 @@ class SpecialitySeeder extends Seeder
 {
     public function run()
     {
-        DB::table('Specialities')->delete();
+        DB::table('specialities')->delete();
         Speciality::create([
             'name'       => 'ВМСиС',
             'faculty_id' => '1',
@@ -53,7 +53,7 @@ class GroupsSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('Groups')->delete();
+        DB::table('groups')->delete();
         Group::create([
             'number'        => '450502',
             'speciality_id' => '1',
