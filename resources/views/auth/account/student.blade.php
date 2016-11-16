@@ -28,10 +28,16 @@
         </div>
     </div>
 </div>
-<div class="col-lg-12"></div>
 
-@section('scripts')
-    <script>
-        //..//
-    </script>
-@endsection
+<div class="col-lg-12" style="margin-top:15px">
+    @foreach($posts as $post )
+        <div class="col-lg-6">
+            <div class="col-lg-12 well">
+                <strong>{{ $post->title }} for: @foreach($post->groups()->get() as $group) {{ $group->number.',' }} @endforeach</strong>
+                <br>
+                <small>{{ $post->body }}</small>
+            </div>
+        </div>
+    @endforeach
+</div>
+

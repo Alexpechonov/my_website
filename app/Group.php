@@ -47,5 +47,13 @@ class Group extends Model
         return $this->belongsTo(Faculty::class);
     }
 
-
+    /**
+     * Returns all posts for a group.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function posts()
+    {
+        return $this->belongsToMany(Post::class, 'posts_to_groups', 'group_id', 'post_id');
+    }
 }

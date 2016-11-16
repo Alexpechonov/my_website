@@ -18,7 +18,10 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         $groups = Group::all();
-        $posts = $user->posts()->get();
+
+        $posts = ($user->hasRole('student'))
+                    ? $user->group->posts()->get()
+                    : $user->posts()->get();
 
         return view('home')->with(compact(['user', 'posts', 'groups']));
     }
