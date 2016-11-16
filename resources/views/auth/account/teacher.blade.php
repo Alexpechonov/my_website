@@ -59,7 +59,9 @@
                 @foreach($posts as $post )
                     <div class="row">
                         <div class="col-lg-12 well">
-                            {{ $post->title }}
+                            <strong>{{ $post->title }} for: @foreach($post->groups()->get() as $group) {{ $group->number.',' }} @endforeach</strong>
+                            <br/>
+                            <small>{{ $post->body }}</small>
                         </div>
                     </div>
                 @endforeach

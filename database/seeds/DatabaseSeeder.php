@@ -55,7 +55,17 @@ class GroupsSeeder extends Seeder
     {
         DB::table('groups')->delete();
         Group::create([
+            'number'        => '450501',
+            'speciality_id' => '1',
+            'faculty_id'    => '1',
+        ]);
+        Group::create([
             'number'        => '450502',
+            'speciality_id' => '1',
+            'faculty_id'    => '1',
+        ]);
+        Group::create([
+            'number'        => '450503',
             'speciality_id' => '1',
             'faculty_id'    => '1',
         ]);
