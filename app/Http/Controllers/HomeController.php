@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\User;
+use App\Group;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -16,9 +17,10 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $groups = Group::all();
         $posts = $user->posts()->get();
 
-        return view('home')->with(compact(['user', 'posts']));
+        return view('home')->with(compact(['user', 'posts', 'groups']));
     }
 
     /**

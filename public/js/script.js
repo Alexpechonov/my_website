@@ -1,3 +1,3 @@
 $(document).ready(function() {
-    $('#example-getting-started').multiselect();
+    $('#choose-groups').multiselect();
 });

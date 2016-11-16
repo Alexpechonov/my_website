@@ -35,17 +35,15 @@
                     <div class="form-group">
                         {!! Form::label('title', 'Заголовок:') !!}
                         {!! Form::text('title', null, ['class' => 'form-control']) !!}
-
+                    </div>
                     <div class="form-group">
-                        <select id="example-getting-started" multiple="multiple">
-                            <option value="cheese">Cheese</option>
-                            <option value="tomatoes">Tomatoes</option>
-                            <option value="mozarella">Mozzarella</option>
-                            <option value="mushrooms">Mushrooms</option>
-                            <option value="pepperoni">Pepperoni</option>
-                            <option value="onions">Onions</option>
+                        {!! Form::label('groups[]', 'Выберите группы:') !!}
+                        <select id="choose-groups" name="groups[]" class="form-control" multiple="multiple">
+                            @foreach($groups as $group)
+                                <option value="{{ $group->id }}">{{ $group->number }}</option>
+                            @endforeach
                         </select>
-                    </div>      </div>
+                    </div>
                     <div class="form-group">
                         {!! Form::label('body', 'Сообщение:') !!}
                         {!! Form::textarea('body', null, ['class' => 'form-control']) !!}
