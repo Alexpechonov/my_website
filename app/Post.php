@@ -31,4 +31,14 @@ class Post extends Model
     {
         return $this->hasOne(User::class);
     }
+
+    /**
+     * Returns all groups for a post.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class, 'posts_to_groups', 'post_id', 'group_id');
+    }
 }
