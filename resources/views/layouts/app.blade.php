@@ -14,6 +14,7 @@
     {{ Html::style('css/app.css') }}
     {{ Html::style('css/style.css') }}
     {{ Html::style('css/font-awesome.min.css') }}
+    {{ Html::style('css/bootstrap-multiselect.css') }}
 
     <!-- Scripts -->
     <script>
@@ -83,12 +84,10 @@
     @yield('content')
 
     <!-- Scripts -->
-    {{ Html::script('js/jquery.min.js') }}
-    {{ Html::script('js/script.js') }}
-    {{ Html::script('js/vue.js') }}
 
     {{ Html::script('js/app.js') }}
-    {{ Html::script('js/main.js') }}
+    {{ Html::script('js/bootstrap-multiselect.js') }}
+    {{ Html::script('js/script.js') }}
     @yield('scripts')
 </body>
 </html>
