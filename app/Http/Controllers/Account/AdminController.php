@@ -25,7 +25,7 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postUpdateGroups()
+    public static function postUpdateGroups()
     {
         $groups = Group::select('number')->get();
 
