@@ -15,11 +15,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //$this->call(UsersTableSeeder::class);
-		
         $this->call('FacultySeeder');
         $this->call('SpecialitySeeder');
-        $this->call('GroupsSeeder');
         $this->call('PoliciesSeeder');
     }
 }
@@ -45,29 +42,6 @@ class SpecialitySeeder extends Seeder
             'name'       => 'ВМСиС',
             'faculty_id' => '1',
             'department' => 'КСиС',
-        ]);
-    }
-}
-
-class GroupsSeeder extends Seeder
-{
-    public function run()
-    {
-        DB::table('groups')->delete();
-        Group::create([
-            'number'        => '450501',
-            'speciality_id' => '1',
-            'faculty_id'    => '1',
-        ]);
-        Group::create([
-            'number'        => '450502',
-            'speciality_id' => '1',
-            'faculty_id'    => '1',
-        ]);
-        Group::create([
-            'number'        => '450503',
-            'speciality_id' => '1',
-            'faculty_id'    => '1',
         ]);
     }
 }
