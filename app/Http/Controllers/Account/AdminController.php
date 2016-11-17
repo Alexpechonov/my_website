@@ -46,8 +46,6 @@ class AdminController extends Controller
             }
         }
 
-        return dd($xml_groups);
-
         return redirect()->back()->with('messages', ['Successfully updated']);
     }
 

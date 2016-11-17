@@ -8,8 +8,16 @@
                     <div class="panel-heading">Admin panel</div>
                     <div class="panel-body">
 
+                        @if(Session::has('messages'))
+                            <div class="alert alert-success">
+                                <ul>
+                                    @foreach (Session::get('messages') as $message)
+                                        <li style="margin: 0 15px">{{ $message }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <h3 style="margin-bottom: 15px;">Обновление списка групп</h3>
-
                         <div class="col-lg-12">
                             <div class="row">
                                 {!! Form::open(['url' => route('groups.update') ]) !!}
