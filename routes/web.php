@@ -31,7 +31,6 @@ Route::resource('post', 'Account\PostController', ['only' => [
 
 
 Route::group(['middleware' => ['admin', 'web']], function () {
-    Route::get('/update-teachers', function () {
-        //..//
-    });
+    Route::get('/update-groups', 'Account\AdminController@updateGroups');
+    Route::post('/groups/update', 'Account\AdminController@postUpdateGroups')->name('groups.update');
 });
