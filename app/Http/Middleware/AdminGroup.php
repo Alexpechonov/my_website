@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class AdminGroup
 {
@@ -16,8 +17,9 @@ class AdminGroup
      */
     public function handle($request, Closure $next)
     {
-        if (!$request->user()->hasRole('admin')) {
-            return redirect()->back();
+        if((!Auth::guest() && !$request->user()->hasRole('admin'))
+            || Auth::guest()) {
+                return redirect()->route('home');
         }
 
         return $next($request);
