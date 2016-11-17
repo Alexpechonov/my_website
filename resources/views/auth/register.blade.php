@@ -3,9 +3,15 @@
 <head>
     <title>Register</title>
     {{ Html::style('css/auth/style.css') }}
+    {{ Html::style('css/select2.min.css') }}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- //end-smoth-scrolling -->
+    <script>
+        window.Laravel = <?php echo json_encode([
+                'csrfToken' => csrf_token(),
+        ]); ?>
+    </script>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,600italic,700,300italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -44,7 +50,7 @@
                 @endif
 
                 <div class="form-group {{ $errors->has('group_id') ? ' has-error' : '' }}">
-                        <select name="group_id" class="form-control">
+                        <select name="group_id" class="selectpicker" style="width:200px">
                             @foreach($groups as $group)
                                 <option value="{{ $group->id }}">{{ $group->number }}</option>
                             @endforeach
@@ -61,5 +67,12 @@
         </div>
         <div class="clear"></div>
     </div>
+    {{ Html::script('js/app.js') }}
+    {{ Html::script('js/select2.min.js') }}
+    <script>
+        $(document).ready(function(){
+            $('select').select2();
+        });
+    </script>
 </body>
 </html>
