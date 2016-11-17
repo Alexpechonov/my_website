@@ -46,6 +46,19 @@ class AdminController extends Controller
             }
         }
 
+        $new_groups = [];
+
+        for($i = 0; $i < count($xml_groups); $i++) {
+            $new_groups[] = [
+                'number' => $xml_groups->studentGroup[$i]->name->__toString(),
+                'group_api_id' => $xml_groups->studentGroup[$i]->id->__toString(),
+                'speciality_id' => 1,
+                'faculty_id' => 1,
+            ];
+        }
+
+        Group::insert($new_groups);
+
         return redirect()->back()->with('messages', ['Successfully updated']);
     }
 

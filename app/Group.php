@@ -18,6 +18,11 @@ class Group extends Model
     ];
 
     /**
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
      * Get the number of group.
      *
      * @return mixed
