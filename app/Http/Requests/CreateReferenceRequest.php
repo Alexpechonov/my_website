@@ -25,7 +25,7 @@ class CreateReferenceRequest extends FormRequest
     {
         return [
             'reference' => 'required|min:3|max:80',
-            'name'      => 'required|min:3|max:15',
+            'name'      => 'required|min:3|max:30',
         ];
     }
 }
