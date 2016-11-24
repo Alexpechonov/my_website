@@ -14,8 +14,7 @@
     {{ Html::style('css/app.css') }}
     {{ Html::style('css/style.css') }}
     {{ Html::style('css/font-awesome.min.css') }}
-    {{ Html::style('css/bootstrap-multiselect.css') }}
-
+    {{ Html::style('css/select2.min.css') }}
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -86,7 +85,6 @@
     <!-- Scripts -->
 
     {{ Html::script('js/app.js') }}
-    {{ Html::script('js/bootstrap-multiselect.js') }}
     {{ Html::script('js/script.js') }}
     @yield('scripts')
 </body>
