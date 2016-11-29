@@ -34,14 +34,16 @@ Vue.component('references', {
         createReference: function () {
             var input = this.newReference;
             this.$http.post('/reference', input)
-                .then(() => {
+                .then((response) => {
                     // success callback
                     $('.modal').modal('toggle');
                     this.newReference = { name: '', reference: '' }
                     this.fetchReferences();
-                }, (data) => {
+                }, (response) => {
                     // error callback
-                   console.log(data);
+                   console.log(response);
+                    $('.modal').modal('toggle');
+                    this.newReference = { name: '', reference: '' }
                 });
 
         },
