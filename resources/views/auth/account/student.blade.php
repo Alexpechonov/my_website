@@ -4,6 +4,17 @@
             <div class="row">
                 <div class="col-lg-6">
                     <img class="avatar" src="./images/folder.jpg" alt="Avatar">
+
+                        <div class="control-group" style="margin-bottom: 5px;">
+                            <div class="controls clearfix">
+                                <span class="btn btn-success btn-file">
+                                    <meta name="csrf-token" content="{{ csrf_token() }}">
+                                    <i class="icon-plus"></i>
+                                    <span class="upload-logo-text">Изменить логотип</span>
+                                    <input type="file" name="logo" id="upload-image" enctype="multipart/form-data"/>
+                                </span>
+                            </div>
+                        </div>
                 </div>
                 <div class="col-lg-6">
                     <ul class="info-list">
