@@ -35,6 +35,9 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 });
 
 Route::group(['middleware' => ['admin', 'web']], function () {
-    Route::get('/update-groups', 'Account\AdminController@updateGroups');
+    Route::get('/update-groups', 'Account\AdminController@updateGroups')->name('groups.index');
     Route::post('/groups/update', 'Account\AdminController@postUpdateGroups')->name('groups.update');
+
+    Route::get('/update-teachers', 'Account\AdminController@updateTeachers')->name('teachers.index');
+    Route::post('/teachers/update', 'Account\AdminController@postUpdateTeachers')->name('teachers.update');
 });

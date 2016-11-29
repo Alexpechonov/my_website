@@ -33,7 +33,7 @@
                         @elseif($user->hasRole('teacher'))
                             @include('auth.account.teacher', ['user' => $user])
                         @elseif($user->hasRole('admin'))
-                            You're admin
+                            @include('admin.index', ['user' => $user])
                         @endif
                     </div>
                 </div>
