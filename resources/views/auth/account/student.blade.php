@@ -3,8 +3,8 @@
         <div class="col-lg-6">
             <div class="row">
                 <div class="col-lg-6">
-                    <img class="avatar" src="./images/folder.jpg" alt="Avatar">
                     <template id="logo-template">
+                        <img class="avatar" id="logo" src="{{ $photo_url }}" alt="Avatar">
                         <div class="control-group" style="margin-bottom: 5px;">
                             <div class="controls clearfix">
                                 <span class="btn btn-success btn-file">

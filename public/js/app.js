@@ -41453,7 +41453,20 @@ Vue.component('logo-comp', {
 
             this.$http.post('/upload/photo', data).then(function (data) {
                 // success callback
-                console.log(data);
+
+                var response = JSON.parse(data.body);
+                console.log(response);
+                if (response.success) {
+                    $('#logo').attr('src', response.photo_url);
+                } else {
+                    if (response.message == undefined) {
+                        alert(response.errors.photo);
+                        $('.btn-file').button('reset');
+                        return;
+                    }
+                    alert(response.message);
+                }
+                $('.btn-file').button('reset');
             }, function (data) {
                 // error callback
                 console.log(data);
