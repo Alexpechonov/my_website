@@ -70,3 +70,11 @@
         </div>
     </div>
 </div>
+
+
+<div class="col-lg-12" style="margin-top:20px">
+    <template id="shedule-template">
+        <input type="hidden" v-model="teacher_id" :value="{{ $user->getApiId() }}">
+    </template>
+    <shedule-comp></shedule-comp>
+</div>

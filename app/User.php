@@ -25,7 +25,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'email', 'password',
-        'group_id', 'policy_id',
+        'group_id', 'policy_id', 'teacher_api_id'
     ];
 
     /**
@@ -150,5 +150,15 @@ class User extends Authenticatable
     public function scopeStudents($query)
     {
         return $query->where('policy_id', self::STUDENT);
+    }
+
+    /**
+     * Returns user's API_ID.
+     *
+     * @return mixed
+     */
+    public function getApiId()
+    {
+        return $this->teacher_api_id;
     }
 }

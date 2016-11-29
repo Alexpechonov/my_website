@@ -11,7 +11,7 @@
                                     <meta name="csrf-token" content="{{ csrf_token() }}">
                                     <i class="icon-plus"></i>
                                     <span class="upload-logo-text">Изменить фото</span>
-                                    <input @change="updatePhoto()" type="file" name="logo" id="upload-image" enctype="multipart/form-data"/>
+                                    <input @change="updatePhoto()" type="file" name="logo" id="upload-image"/>
                                 </span>
                             </div>
                         </div>

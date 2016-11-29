@@ -41379,12 +41379,13 @@ Vue.http.headers.common['X-CSRF-TOKEN'] = window.Laravel.csrfToken;
 
 require('./components/Reference');
 require('./components/Logo');
+require('./components/Shedule');
 
 var app = new Vue({
   el: 'body'
 });
 
-},{"./bootstrap":8,"./components/Logo":9,"./components/Reference":10}],8:[function(require,module,exports){
+},{"./bootstrap":8,"./components/Logo":9,"./components/Reference":10,"./components/Shedule":11}],8:[function(require,module,exports){
 'use strict';
 
 window._ = require('lodash');
@@ -41434,7 +41435,7 @@ require('./select2.min.js');
 //     key: 'your-pusher-key'
 // });
 
-},{"./select2.min.js":11,"bootstrap-sass":1,"jquery":2,"lodash":3,"vue":6,"vue-resource":5}],9:[function(require,module,exports){
+},{"./select2.min.js":12,"bootstrap-sass":1,"jquery":2,"lodash":3,"vue":6,"vue-resource":5}],9:[function(require,module,exports){
 'use strict';
 
 Vue.component('logo-comp', {
@@ -41446,8 +41447,6 @@ Vue.component('logo-comp', {
 
     methods: {
         updatePhoto: function updatePhoto() {
-            console.log("worked");
-
             var data = new FormData();
             data.append('photo', $("#upload-image").prop('files')[0]);
 
@@ -41543,6 +41542,41 @@ Vue.component('references', {
 });
 
 },{}],11:[function(require,module,exports){
+'use strict';
+
+Vue.component('shedule-comp', {
+    template: '#shedule-template',
+
+    data: function data() {
+        return {
+            teacher_id: 1,
+            shedule: []
+        };
+    },
+
+    watch: {
+        teacher_id: function teacher_id() {
+            this.getShedule();
+        }
+    },
+
+    methods: {
+        getShedule: function getShedule() {
+            var _this = this;
+
+            this.$http.get('/shedule/teacher/' + this.teacher_id).then(function (shedule) {
+                _this.shedule = shedule.data;
+                console.log(_this.shedule);
+            });
+        },
+
+        updateTeacherId: function updateTeacherId(value) {
+            this.teacher_id = value;
+        }
+    }
+});
+
+},{}],12:[function(require,module,exports){
 "use strict";
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };

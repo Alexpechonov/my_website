@@ -18,6 +18,7 @@ Vue.http.headers.common['X-CSRF-TOKEN'] = window.Laravel.csrfToken;
 
 require('./components/Reference');
 require('./components/Logo');
+require('./components/Shedule');
 
 const app = new Vue({
     el: 'body'
