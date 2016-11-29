@@ -21,9 +21,5 @@ Vue.component('shedule-comp', {
                 console.log(this.shedule);
             });
         },
-
-        updateTeacherId: function (value) {
-            this.teacher_id = value;
-        },
     },
 });
