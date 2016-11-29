@@ -17,6 +17,7 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index')->name('account');
+    Route::post('/upload/photo', 'Account\ImageController@postUploadPhoto')->name('upload.photo');
 });
 
 Route::resource('reference', 'Account\ReferenceController', ['only' => [
@@ -29,6 +30,9 @@ Route::resource('post', 'Account\PostController', ['only' => [
     'create', 'store', 'update', 'destroy',
 ]]);
 
+
+Route::group(['middleware' => ['web', 'auth']], function () {
+});
 
 Route::group(['middleware' => ['admin', 'web']], function () {
     Route::get('/update-groups', 'Account\AdminController@updateGroups');
