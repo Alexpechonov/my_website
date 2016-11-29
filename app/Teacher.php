@@ -21,4 +21,13 @@ class Teacher extends Model
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     * Returns integer number of teacher's api_id.
+     *
+     * @return mixed
+     */
+    public function getApiId() {
+        return $this->teacher_id_api;
+    }
 }
