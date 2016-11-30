@@ -47,6 +47,7 @@
                     <li class="active"><a href="{{ url('/') }}">Home</a></li>
                     <li><a class="scroll" href="#features">Features</a></li>
                     <li><a class="scroll" href="#about">About</a></li>
+                    <li><a  href="{{ route('faq') }}">F.A.Q.</a></li>
                     @if (Auth::guest())
                         <li><a href="{{ url('/register') }}">Register</a></li>
                         <li><a href="{{ url('/login') }}">Login</a></li>
