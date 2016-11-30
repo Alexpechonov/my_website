@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Account;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Http\Requests;
-use GuzzleHttp\Client;
 use App\Group;
+use App\Http\Controllers\Controller;
 use App\Teacher;
+use GuzzleHttp\Client;
+use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
@@ -46,10 +45,9 @@ class AdminController extends Controller
 
         $count = count($groups);
 
-        for($j = 0; $j < $count; $j++) {
-            for($i = 0; $i < count($xml_groups); $i++) {
-                if(!strcmp($groups[$j]->number, $xml_groups->studentGroup[$i]->name->__toString()))
-                {
+        for ($j = 0; $j < $count; $j++) {
+            for ($i = 0; $i < count($xml_groups); $i++) {
+                if (!strcmp($groups[$j]->number, $xml_groups->studentGroup[$i]->name->__toString())) {
                     unset($groups[$j]);
                     unset($xml_groups->studentGroup[$i]);
                     break;
@@ -59,12 +57,12 @@ class AdminController extends Controller
 
         $new_groups = [];
 
-        for($i = 0; $i < count($xml_groups); $i++) {
+        for ($i = 0; $i < count($xml_groups); $i++) {
             $new_groups[] = [
-                'number' => $xml_groups->studentGroup[$i]->name->__toString(),
-                'group_api_id' => $xml_groups->studentGroup[$i]->id->__toString(),
+                'number'        => $xml_groups->studentGroup[$i]->name->__toString(),
+                'group_api_id'  => $xml_groups->studentGroup[$i]->id->__toString(),
                 'speciality_id' => 1,
-                'faculty_id' => 1,
+                'faculty_id'    => 1,
             ];
         }
 
@@ -88,10 +86,9 @@ class AdminController extends Controller
 
         $count = count($teachers);
 
-        for($j = 0; $j < $count; $j++) {
-            for($i = 0; $i < count($xml_teachers); $i++) {
-                if($teachers[$j]->getApiId() == (int)$xml_teachers->employee[$i]->id)
-                {
+        for ($j = 0; $j < $count; $j++) {
+            for ($i = 0; $i < count($xml_teachers); $i++) {
+                if ($teachers[$j]->getApiId() == (int) $xml_teachers->employee[$i]->id) {
                     unset($teachers[$j]);
                     unset($xml_teachers->employee[$i]);
                     break;
@@ -101,14 +98,14 @@ class AdminController extends Controller
 
         $new_teachers = [];
 
-        for($i = 0; $i < count($xml_teachers); $i++) {
+        for ($i = 0; $i < count($xml_teachers); $i++) {
             $new_teachers[] = [
-                'teacher_id_api' => (int)$xml_teachers->employee[$i]->id,
-                'firstName' => $xml_teachers->employee[$i]->firstName->__toString(),
-                'middleName' => $xml_teachers->employee[$i]->middleName->__toString(),
-                'lastName' => $xml_teachers->employee[$i]->lastName->__toString(),
-                'department' => $xml_teachers->employee[$i]->academicDepartment->__toString(),
-                'rank' => $xml_teachers->employee[$i]->rank->__toString(),
+                'teacher_id_api' => (int) $xml_teachers->employee[$i]->id,
+                'firstName'      => $xml_teachers->employee[$i]->firstName->__toString(),
+                'middleName'     => $xml_teachers->employee[$i]->middleName->__toString(),
+                'lastName'       => $xml_teachers->employee[$i]->lastName->__toString(),
+                'department'     => $xml_teachers->employee[$i]->academicDepartment->__toString(),
+                'rank'           => $xml_teachers->employee[$i]->rank->__toString(),
             ];
         }
 
@@ -116,5 +113,4 @@ class AdminController extends Controller
 
         return redirect()->back()->with('messages', ['Successfully updated']);
     }
-
 }

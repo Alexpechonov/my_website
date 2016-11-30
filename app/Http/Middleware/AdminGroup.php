@@ -17,9 +17,9 @@ class AdminGroup
      */
     public function handle($request, Closure $next)
     {
-        if((!Auth::guest() && !$request->user()->hasRole('admin'))
+        if ((!Auth::guest() && !$request->user()->hasRole('admin'))
             || Auth::guest()) {
-                return redirect()->route('home');
+            return redirect()->route('home');
         }
 
         return $next($request);

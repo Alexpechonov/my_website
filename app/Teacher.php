@@ -27,7 +27,8 @@ class Teacher extends Model
      *
      * @return mixed
      */
-    public function getApiId() {
+    public function getApiId()
+    {
         return $this->teacher_id_api;
     }
 }

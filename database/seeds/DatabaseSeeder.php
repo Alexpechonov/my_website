@@ -1,7 +1,6 @@
 <?php
 
 use App\Faculty;
-use App\Group;
 use App\Policy;
 use App\Speciality;
 use Illuminate\Database\Seeder;
