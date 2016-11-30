@@ -3,20 +3,31 @@ Vue.component('shedule-comp', {
 
     data: function () {
         return {
+            teacher: true,
             teacher_id: 1,
+            group_id: 1,
             shedules: {}
         }
     },
 
     watch: {
         teacher_id: function() {
-            this.getShedule();
+            this.getTeacherShedule();
+        },
+        group_id: function() {
+            this.getStudentShedule();
         }
     },
 
     methods: {
-        getShedule: function () {
+        getTeacherShedule: function () {
             this.$http.get('/shedule/teacher/' + this.teacher_id).then((shedule) => {
+                this.shedules = shedule.data;
+            });
+        },
+
+        getStudentShedule: function () {
+            this.$http.get('/shedule/student/' + this.group_id).then((shedule) => {
                 this.shedules = shedule.data;
             });
         },
