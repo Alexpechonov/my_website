@@ -38,7 +38,7 @@ class SheduleController extends Controller
                 $weekNumbers = $sheduleModel->schedule[$j]->weekNumber;
 
                 for($k = 0; $k < count($weekNumbers); $k++) {
-                    $shedule[$i]['modules'][$j]['weekNumber'][$k] = (int)$weekNumbers[$k];
+                    $shedule[$i]['modules'][$j]['weekNumbers'][$k] = (int)$weekNumbers[$k];
                 }
             }
 
@@ -78,12 +78,10 @@ class SheduleController extends Controller
                 $weekNumbers = $sheduleModel->schedule[$j]->weekNumber;
 
                 for($k = 0; $k < count($weekNumbers); $k++) {
-                    $shedule[$i]['modules'][$j]['weekNumber'][$k] = (int)$weekNumbers[$k];
+                    $shedule[$i]['modules'][$j]['weekNumbers'][$k] = (int)$weekNumbers[$k];
                 }
 
-                $shedule[$i]['modules'][$j]['teacher']['firstName'] = $sheduleModel->schedule[$j]->employee->firstName->__toString();
-                $shedule[$i]['modules'][$j]['teacher']['middleName'] = $sheduleModel->schedule[$j]->employee->middleName->__toString();
-                $shedule[$i]['modules'][$j]['teacher']['lastName'] = $sheduleModel->schedule[$j]->employee->lastName->__toString();
+                $shedule[$i]['modules'][$j]['teacher'] = $sheduleModel->schedule[$j]->employee;
 
             }
 

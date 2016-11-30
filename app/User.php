@@ -161,4 +161,14 @@ class User extends Authenticatable
     {
         return $this->teacher_api_id;
     }
+
+    /**
+     * Returns user's API_GROUP_ID.
+     *
+     * @return mixed
+     */
+    public function getApiGroupId()
+    {
+        return $this->group->getApiId();
+    }
 }

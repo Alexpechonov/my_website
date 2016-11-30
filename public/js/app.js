@@ -41550,22 +41550,34 @@ Vue.component('shedule-comp', {
     data: function data() {
         return {
             teacher_id: 1,
+            group_id: 1,
             shedules: {}
         };
     },
 
     watch: {
         teacher_id: function teacher_id() {
-            this.getShedule();
+            this.getTeacherShedule();
+        },
+        group_id: function group_id() {
+            this.getStudentShedule();
         }
     },
 
     methods: {
-        getShedule: function getShedule() {
+        getTeacherShedule: function getTeacherShedule() {
             var _this = this;
 
             this.$http.get('/shedule/teacher/' + this.teacher_id).then(function (shedule) {
                 _this.shedules = shedule.data;
+            });
+        },
+
+        getStudentShedule: function getStudentShedule() {
+            var _this2 = this;
+
+            this.$http.get('/shedule/student/' + this.group_id).then(function (shedule) {
+                _this2.shedules = shedule.data;
             });
         }
     }

@@ -3,7 +3,6 @@ Vue.component('shedule-comp', {
 
     data: function () {
         return {
-            teacher: true,
             teacher_id: 1,
             group_id: 1,
             shedules: {}

@@ -1492,3 +1492,7 @@ margin-right:1em;
   from { transform: scale(1) rotate(0deg);}
   to { transform: scale(1) rotate(360deg);}
 }
+
+.table-responsive {
+  border: none;
+}

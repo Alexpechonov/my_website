@@ -14,13 +14,23 @@ class Group extends Model
      * @var array
      */
     protected $fillable = [
-        'number', 'speciality_id', 'faculty_id',
+        'number', 'speciality_id', 'faculty_id', 'group_api_id',
     ];
 
     /**
      * @var bool
      */
     public $timestamps = false;
+
+    /**
+     * Get the GROUP_API_ID.
+     *
+     * @return mixed
+     */
+    public function getApiId()
+    {
+        return $this->group_api_id;
+    }
 
     /**
      * Get the number of group.
