@@ -31,6 +31,9 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/shedule/teacher/{teacher}', 'Account\SheduleController@getTeacherShedule')
         ->name('shedule.teacher.get');
+
+    Route::get('/shedule/student/{group}', 'Account\SheduleController@getStudentShedule')
+        ->name('shedule.student.get');
 });
 
 
