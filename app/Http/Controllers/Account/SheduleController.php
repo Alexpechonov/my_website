@@ -22,25 +22,27 @@ class SheduleController extends Controller
             $shedule[$i]['weekDay'] = $sheduleModel->weekDay->__toString();
 
             for($j = 0; $j < count($sheduleModel->schedule); $j++) {
-                $shedule[$i][$j]['auditory'] = $sheduleModel->schedule->auditory->__toString();
-                $shedule[$i][$j]['lessonTime'] = $sheduleModel->schedule->lessonTime->__toString();
-                $shedule[$i][$j]['lessonType'] = $sheduleModel->schedule->lessonType->__toString();
-                $shedule[$i][$j]['numSubgroup'] = $sheduleModel->schedule->numSubgroup->__toString();
-                $shedule[$i][$j]['subject'] = $sheduleModel->schedule->subject->__toString();
-                $shedule[$i][$j]['zaoch'] = (boolean)$sheduleModel->schedule->zaoch;
+                $shedule[$i]['modules'][$j]['auditory'] = $sheduleModel->schedule[$j]->auditory->__toString();
+                $shedule[$i]['modules'][$j]['lessonTime'] = $sheduleModel->schedule[$j]->lessonTime->__toString();
+                $shedule[$i]['modules'][$j]['lessonType'] = $sheduleModel->schedule[$j]->lessonType->__toString();
+                $shedule[$i]['modules'][$j]['numSubgroup'] = $sheduleModel->schedule[$j]->numSubgroup->__toString();
+                $shedule[$i]['modules'][$j]['subject'] = $sheduleModel->schedule[$j]->subject->__toString();
+                $shedule[$i]['modules'][$j]['zaoch'] = (boolean)$sheduleModel->schedule[$j]->zaoch;
 
-                $studentGroups = $sheduleModel->schedule->studentGroup;
+                $studentGroups = $sheduleModel->schedule[$j]->studentGroup;
 
                 for($k = 0; $k < count($studentGroups); $k++) {
-                    $shedule[$i][$j]['studentGroups'][$k] = (int)$studentGroups[$k];
+                    $shedule[$i]['modules'][$j]['studentGroups'][$k] = (int)$studentGroups[$k];
                 }
 
-                $weekNumbers = $sheduleModel->schedule->weekNumber;
+                $weekNumbers = $sheduleModel->schedule[$j]->weekNumber;
 
                 for($k = 0; $k < count($weekNumbers); $k++) {
-                    $shedule[$i][$j]['weekNumber'][$k] = (int)$weekNumbers[$k];
+                    $shedule[$i]['modules'][$j]['weekNumber'][$k] = (int)$weekNumbers[$k];
                 }
             }
+
+            $shedule[$i]['modules'] = (object)$shedule[$i]['modules'];
 
         }
 
