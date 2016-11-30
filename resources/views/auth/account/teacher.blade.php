@@ -75,6 +75,34 @@
 <div class="col-lg-12" style="margin-top:20px">
     <template id="shedule-template">
         <input type="hidden" v-model="teacher_id" :value="{{ $user->getApiId() }}">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <strong>Расписание</strong>
+            </tr>
+            </thead>
+            <tbody>
+            <tr style="border: 1px solid #ddd" v-for="shedule in shedules">
+                <td style="border-right: 1px solid #ddd">@{{ shedule.weekDay }}</td>
+                <td style="border-right: 1px solid #ddd" v-for="mod in shedule.modules">
+                    @{{ mod.lessonTime }}  @{{ mod.subject }} (@{{ mod.lessonType }})<br>
+                    @{{ mod.auditory }}<br>
+                    гр. @{{ mod.studentGroups }}
+                    <template v-if="mod.numSubgroup != 0">
+                        (п.@{{ mod.numSubgroup }})
+                    </template>
+                    <br>
+                    недели:
+                    <template v-if="mod.weekNumber.length == 5">
+                        все
+                    </template>
+                    <template v-else>
+                        @{{ mod.weekNumber }}
+                    </template>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </template>
     <shedule-comp></shedule-comp>
 </div>

@@ -41550,7 +41550,7 @@ Vue.component('shedule-comp', {
     data: function data() {
         return {
             teacher_id: 1,
-            shedule: []
+            shedules: {}
         };
     },
 
@@ -41565,13 +41565,8 @@ Vue.component('shedule-comp', {
             var _this = this;
 
             this.$http.get('/shedule/teacher/' + this.teacher_id).then(function (shedule) {
-                _this.shedule = shedule.data;
-                console.log(_this.shedule);
+                _this.shedules = shedule.data;
             });
-        },
-
-        updateTeacherId: function updateTeacherId(value) {
-            this.teacher_id = value;
         }
     }
 });

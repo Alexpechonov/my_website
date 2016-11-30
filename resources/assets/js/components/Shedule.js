@@ -4,7 +4,7 @@ Vue.component('shedule-comp', {
     data: function () {
         return {
             teacher_id: 1,
-            shedule: []
+            shedules: {}
         }
     },
 
@@ -17,8 +17,7 @@ Vue.component('shedule-comp', {
     methods: {
         getShedule: function () {
             this.$http.get('/shedule/teacher/' + this.teacher_id).then((shedule) => {
-                this.shedule = shedule.data;
-                console.log(this.shedule);
+                this.shedules = shedule.data;
             });
         },
     },
