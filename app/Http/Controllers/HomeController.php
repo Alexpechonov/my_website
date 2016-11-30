@@ -50,4 +50,14 @@ class HomeController extends Controller
 
         return view('welcome')->with(compact(['teachers', 'students', 'posts']));
     }
+
+    /**
+     * Show the F.A.Q. page.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function faqPage()
+    {
+        return view('faq');
+    }
 }

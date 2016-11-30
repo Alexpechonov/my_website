@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@mainPage')->name('home');
+Route::get('/faq', 'HomeController@faqPage')->name('faq');
 
 Auth::routes();
 
