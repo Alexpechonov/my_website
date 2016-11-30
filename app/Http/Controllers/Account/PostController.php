@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Account;
 
-use App\Http\Requests\CreatePostRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreatePostRequest;
+use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Post;
-
 
 class PostController extends Controller
 {
