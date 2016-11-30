@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>BSUIR Community</title>
+    <title>{{ config('app.name', 'Community BSUIR') }}</title>
     {{ Html::style('css/bootstrap.css') }}
     <!-- jQuery (Bootstrap's JavaScript plugins) -->
     {{ Html::script('js/jquery.min.js') }}
